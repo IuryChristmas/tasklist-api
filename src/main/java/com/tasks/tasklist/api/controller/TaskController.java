@@ -53,6 +53,11 @@ public class TaskController {
 		return ResponseEntity.ok(business.atualizar(task));
 	}
 	
+	@PutMapping("/concluir")
+	public ResponseEntity<Task> concluirTask(@RequestBody Task task) {
+		return ResponseEntity.ok(business.concluirTask(task));
+	}
+	
 	@DeleteMapping("{id}")
 	public void excluir(@PathVariable Long id) {
 		business.excluid(id);

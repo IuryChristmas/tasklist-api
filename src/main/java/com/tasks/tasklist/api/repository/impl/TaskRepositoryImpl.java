@@ -52,6 +52,10 @@ public class TaskRepositoryImpl implements TaskRepositoryQuery {
 			predicates.add(builder.like(builder.lower(root.get("titulo")), "%" + filter.getTitulo().toLowerCase() + "%"));
 		}
 		
+		if(filter.getStatus() != null) {
+			predicates.add(builder.equal(root.get("status"), filter.getStatus()));
+		}
+		
 		return predicates.toArray(new Predicate[predicates.size()]);
 	}
 
